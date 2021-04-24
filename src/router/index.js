@@ -1,27 +1,30 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Basic from '../views/Basic.vue'
-// import content from '../views/content.vue'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import step01 from '../views/step01.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Basic',
-    component: Basic
+    path: '/step01',
+    name: 'step01',
+    component: step01
   },
   {
-    path: '/Questionnaire',
-    name: 'Questionnaire',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Questionnaire.vue')
+    path: '/step02',
+    name: 'step02',
+    component: () => import(/* webpackChunkName: "about" */ '../views/step02.vue')
   },
   {
-    path: '/Content',
-    name: 'Content',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Content.vue')
-  },
+    path: '/step03',
+    name: 'step03',
+    component: () => import(/* webpackChunkName: "about" */ '../views/step03.vue')
+  }
 ]
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 
