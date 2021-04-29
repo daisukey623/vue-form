@@ -1,24 +1,23 @@
 <template>
-    <form>
+  <form>
     <p>- ご相談内容 -</p>
-    <textarea name="" id="" cols="60" rows="20"></textarea>
-    </form>
+    <textarea
+      cols="60"
+      rows="20"
+      @input="updateConsultation"
+    ></textarea>
+  </form>
 </template>
 
 <script>
 export default {
   name: 'Consultation',
-  props: {
-    msg: String
+  methods: {
+    updateConsultation(e) {
+      this.$store.commit('updateConsultation', e.target.value);
+    },
   },
- data:function() {
-    return{
-
-    }},
-  computed: {},
-  methods: {}
-}
-
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
