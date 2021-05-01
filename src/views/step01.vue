@@ -1,13 +1,11 @@
 <template>
-<div>
   <div>
-    <div>STEP1</div>
-    <div>お客様の情報を入力してください</div>
-    <Gender/>
-    <Birthday/>
+      <div>STEP1</div>
+      <div>お客様の情報を入力してください</div>
+      <Gender />
+      <Birthday />
+    <router-link to="/step02"><button>進む</button></router-link>
   </div>
-  <router-link to="/step02"><button>進む</button></router-link>
-</div>
 </template>
 
 <script>
@@ -21,10 +19,5 @@ export default {
     Gender,
     Birthday,
   },
-  methods:{
-    // nextPage(){
-
-    // }
-  }
-}
+};
 </script>

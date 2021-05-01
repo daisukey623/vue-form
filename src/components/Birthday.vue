@@ -1,18 +1,18 @@
 <template>
     <form>
     <p>- 生年月日 -</p>
-    <select id="year" v-model="defalutYear">
+    <select id="year" v-model="defalutYear" @input="updateBirthdayYear">
       <option v-for="Year in Years" :key="Year.defalutYear" :value="Year.defalutYear">{{
         Year.label
-      }}</option>
+      }} </option>
     </select>年
 
-    <select id="month" v-model="defaultMonth">
+    <select id="month" v-model="defaultMonth" @input="updateBirthdayMonth">
       <option v-for="Month in Months" :key="Month.defaultMonth" :value="Month.defaultMonth">{{Month.label
       }}</option>
     </select>月
 
-    <select id="date" v-model="defaultDate">
+    <select id="date" v-model="defaultDate" @input="updateBirthdayDate">
       <option v-for="DayDate in Dates" :key="DayDate.date" :value="DayDate.defaultDate">{{
         DayDate.label
       }}</option>
@@ -23,11 +23,9 @@
 
 <script type>
 import { Years,Months,Dates } from "../utiles/definition.js"
+
 export default {
   name: 'Birthday',
-  props: {
-    msg: String
-  },
  data:function() {
     return{
       defalutYear: 2000,
@@ -37,18 +35,36 @@ export default {
       Months:[],
       Dates:[]
 
-    }},mounted() {
+    }}
+    ,mounted() {
     this.Years = Years;
     this.Months = Months;
     this.Dates = Dates;
   },
   computed: {
-    
+    birthdayYear() {
+      return this.$store.getters.getBirthdayYear;
+    },
+    birthdayMonth() {
+      return this.$store.getters.getBirthdayMonth;
+    },
+    birthdayDate() {
+      return this.$store.getters.getBirthdayDate;
+    },
   },
   methods: {
-
-  }
+    updateBirthdayYear(e) {
+      this.$store.commit('updateBirthdayYear', e.target.value)
+    },
+    updateBirthdayMonth(e) {
+      this.$store.commit('updateBirthdayMonth', e.target.value);
+    },
+    updateBirthdayDate(e) {
+      this.$store.commit('updateBirthdayDate', e.target.value);
+    },
+  },
 }
+
 
 </script>
 

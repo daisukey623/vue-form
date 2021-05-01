@@ -1,25 +1,20 @@
 <template>
-    <form>
+  <form>
     <p>- 性別 -</p>
-    <input type="radio" name="gender">男性
-    <input type="radio" name="gender">女性
-    </form>
+    <input type="radio" name="gender" value="男性" @input="updateGender" />男性
+    <input type="radio" name="gender" value="女性" @input="updateGender"  />女性
+  </form>
 </template>
 
 <script>
 export default {
   name: 'Gender',
-  props: {
-    msg: String
+  methods: {
+    updateGender(e) {
+      this.$store.commit('updateGender', e.target.value)
+    },
   },
- data:function() {
-    return{
-
-    }},
-  computed: {},
-  methods: {}
-}
-
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
