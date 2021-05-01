@@ -34,16 +34,16 @@ export default {
   name: 'step01',
   computed: {
     gender: function() {
-      return this.$store.state.gender;
+      return this.$store.getters.getGender;
     },
     birthdayYear: function() {
-      return this.$store.state.birthdayYear;
+      return this.$store.getters.getBirthdayYear;
     },
     birthdayMonth: function() {
-      return this.$store.state.birthdayMonth;
+      return this.$store.getters.getBirthdayMonth;
     },
     birthdayDate: function() {
-      return this.$store.state.birthdayDate;
+      return this.$store.getters.getBirthdayDate;
     },
     birthday: function() {
       return `${this.birthdayYear}年${this.birthdayMonth}月${this.birthdayDate}日`;

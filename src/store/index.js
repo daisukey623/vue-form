@@ -17,11 +17,22 @@ const store = new Vuex.Store({
     q03:'',
     consultation:''
   },
-  mutations: {
-    updateMessage(state, message) {
-      state.message = message;
+  getters:{
+    getGender:function(state){
+      return state.gender
     },
-    updateGender(state, gender) {
+    getBirthdayYear:function(state){ 
+      return state.birthdayYear
+    },
+    getBirthdayMonth:function(state){ 
+      return state.birthdayMonth
+    },
+    getBirthdayDate:function(state){ 
+      return state.birthdayDate
+    },
+  },
+  mutations:{
+    updateGender(state,gender) {
       state.gender = gender;
     },
     updateBirthdayYear(state,birthdayYear) {

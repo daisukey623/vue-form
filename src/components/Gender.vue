@@ -11,7 +11,7 @@ export default {
   name: 'Gender',
   methods: {
     updateGender(e) {
-      this.$store.commit('updateGender', e.target.value);
+      this.$store.commit('updateGender', e.target.value)
     },
   },
 };

@@ -23,6 +23,7 @@
 
 <script type>
 import { Years,Months,Dates } from "../utiles/definition.js"
+
 export default {
   name: 'Birthday',
  data:function() {
@@ -42,18 +43,18 @@ export default {
   },
   computed: {
     birthdayYear() {
-      return this.$store.state.birthdayYear;
+      return this.$store.getters.getBirthdayYear;
     },
     birthdayMonth() {
-      return this.$store.state.birthdayMonth;
+      return this.$store.getters.getBirthdayMonth;
     },
     birthdayDate() {
-      return this.$store.state.birthdayDate;
+      return this.$store.getters.getBirthdayDate;
     },
   },
   methods: {
     updateBirthdayYear(e) {
-      this.$store.commit('updateBirthdayYear', e.target.value);
+      this.$store.commit('updateBirthdayYear', e.target.value)
     },
     updateBirthdayMonth(e) {
       this.$store.commit('updateBirthdayMonth', e.target.value);
@@ -63,6 +64,7 @@ export default {
     },
   },
 }
+
 
 </script>
 
